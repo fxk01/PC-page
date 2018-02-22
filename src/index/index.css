@@ -1,0 +1,18 @@
+.page-index-hea {
+    min-width: 1180px;
+    position: relative;
+}
+.page-index-slider {
+    min-width: 1180px;
+    position: relative;
+    clear: both;
+}
+.am-slider .am-slides img {
+    width: 100%;
+    display: block;
+    height: 23rem;
+}
+ul li {
+    float: right;
+    list-style: none;
+}

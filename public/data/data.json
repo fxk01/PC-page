@@ -1,0 +1,11 @@
+{
+  "action": "topicPingjiAction",
+  "methon": "saveTopicJieguo",
+  "info": {
+    "topicType": 3,
+    "code": "",
+    "name": "",
+    "grade": "",
+    "answerList": ""
+  }
+}
