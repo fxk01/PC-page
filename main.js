@@ -16,6 +16,18 @@ var routeJump = function() {
     var self = this;
     self._controlPage();
   };
+  this._trueAndFalseIe = function(type) {
+    var msIe = type.replace(/[.][\w]/g, '');
+    if(browser === 'Microsoft Internet Explorer') {
+      var data = {
+        MSIE6: 'MSIE6.0',
+        MSIE7: 'MSIE7.0',
+        MSIE8: 'MSIE8.0',
+        MSIE9: 'MSIE9.0'
+      };
+      return data[msIe] ? data[msIe] : false;
+    }
+  };
   this._controlPage = function() {
     this._trueAndFalseIe(trim_Version) ? window.location.href = 'http://rj.baidu.com/soft/detail/14744.html?ald' : console.log('浏览器版本正常！');
     switch(routeHtml) {
@@ -30,18 +42,6 @@ var routeJump = function() {
         });
         break;
       default:
-    }
-  };
-  this._trueAndFalseIe = function(type) {
-    var msIe = type.replace(/[.][\w]/g, '');
-    if(browser === 'Microsoft Internet Explorer') {
-      var data = {
-        MSIE6: 'MSIE6.0',
-        MSIE7: 'MSIE7.0',
-        MSIE8: 'MSIE8.0',
-        MSIE9: 'MSIE9.0'
-      };
-      return data[msIe] ? data[msIe] : false;
     }
   }
 };
