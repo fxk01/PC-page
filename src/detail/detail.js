@@ -16,14 +16,14 @@ require.config({
 });
 
 define(['jquery', 'amui', 'dot', 'com', 'module'], function($, amui, dot, comTarget, module) {
-  var detailPage = function () {
+  var detailPage = function() {
     return new detailPage.prototype.init();
   };
   detailPage.prototype = {
     /*
       初始化
      */
-    init: function () {
+    init: function() {
       console.log(comTarget.init(), $);
     }
   };

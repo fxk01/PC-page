@@ -22,16 +22,16 @@ require.config({
 });
 
 define(['$$', 'amui', 'dot', 'com', 'easing', 'plug', 'module'], function($$, amui, dot, comTarget, easing, $, module) {
-  var indexPage = function () {
+  var indexPage = function() {
     return new indexPage.prototype.init();
   };
   indexPage.prototype = {
     /*
     初始化
     */
-    init: function () {
+    init: function() {
       //引入第三方插件
-      console.log(comTarget);
+      // console.log(comTarget);
       // $('p#beatText').loginAjax();
       $('p#beatText').beatText({isAuth:false,isRotate:false});
       $('p#rotateText').beatText({isAuth:false,isRotate:true});
