@@ -11,4 +11,4 @@
   fileExclusionRegExp: /^(r|build)\.js|.*\.scss$|(\.idea$)|(\.gitattributes$)|(\.gitignore$)|(\.md$)/,
   optimizeCss: 'standard',
   removeCombined: true
-})
+});
