@@ -1,10 +1,10 @@
 ({
   appDir: './',
   dir: './dist',
-  baseUrl:'./',
+  baseUrl: './',
   modules: [
     {
-      name:'main',
+      name: 'main',
       exclude: ['libs/jquery/jquery-2.1.4']
     }
   ],
