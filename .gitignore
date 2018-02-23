@@ -4,6 +4,7 @@
 
 # IntelliJ project files
 .idea
+dist
 *.iml
 out
 gen
