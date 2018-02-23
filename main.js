@@ -29,7 +29,7 @@ var routeJump = function() {
     }
   };
   this._controlPage = function() {
-    this._trueAndFalseIe(trim_Version) ? window.location.href = 'http://rj.baidu.com/soft/detail/14744.html?ald' : console.log('浏览器版本正常！');
+    this._trueAndFalseIe(trim_Version) ? window.location.href = '../../src/404/404.html' : console.log('浏览器版本正常！');
     switch(routeHtml) {
       case 'index.html':
         require(['../index/index.js?bust=' + new Date().getTime() + ''], function (obj) {
