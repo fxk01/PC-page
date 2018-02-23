@@ -8,9 +8,6 @@ require.config({
   baseUrl: '',
   urlArgs: 'bust=' + new Date().getTime(),
   waitSeconds: 0
-  // paths: {
-  //   jquery: '../../libs/jquery/jquery-2.1.4'
-  // }
 });
 
 define(['module'], function (module) {
