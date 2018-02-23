@@ -3,6 +3,7 @@
 多页面架构
 
 > requireJs + dot + AmazeUI + jquery + mock
+
 #打包
 >node r.js -o build.js
 
