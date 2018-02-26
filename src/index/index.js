@@ -13,8 +13,7 @@ require.config({
     dot: '../../utils/dot',
     com: '../../utils/com',
     easing: '../../libs/easing/easing',
-    plug: '../../utils/plug',
-    is: '../../libs/is/is'
+    plug: '../../utils/plug'
   },
   shim: {
     easing: ['$$'],
@@ -22,7 +21,7 @@ require.config({
   }
 });
 
-define(['$$', 'amui', 'dot', 'com', 'easing', 'plug', 'is', 'module'], function($$, amui, dot, comTarget, easing, $, is, module) {
+define(['$$', 'amui', 'dot', 'com', 'easing', 'plug', 'module'], function($$, amui, dot, comTarget, easing, $, module) {
   var indexPage = function() {
     return new indexPage.prototype.init();
   };
@@ -32,7 +31,6 @@ define(['$$', 'amui', 'dot', 'com', 'easing', 'plug', 'is', 'module'], function(
     */
     init: function() {
       //引入第三方插件
-      console.log(is.email('21321'));
       // console.log(comTarget);
       // $('p#beatText').loginAjax();
       $('p#beatText').beatText({isAuth:false,isRotate:false});
