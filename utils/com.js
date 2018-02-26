@@ -21,7 +21,7 @@ define(['module'], function (module) {
         url: url,
         data: params,
         type: type,
-        cache: false,
+        cache: true,
         async: true,
         dataType: 'json',
         success: function(data) {
