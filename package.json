@@ -1,0 +1,23 @@
+{
+  "name": "record",
+  "version": "1.0.0",
+  "description": "备案大师",
+  "main": "main.js",
+  "dependencies": {
+    "html-minifier": "^3.5.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxk01/PC-page.git"
+  },
+  "author": "李凯明",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fxk01/PC-page/issues"
+  },
+  "homepage": "https://github.com/fxk01/PC-page#readme"
+}
