@@ -1,6 +1,6 @@
 /**
- * 公共com
- * @type {{}}
+ * 公共单例
+ * @com
  */
 
 'use strict';
