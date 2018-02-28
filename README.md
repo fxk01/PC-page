@@ -7,6 +7,7 @@
 > npm install 安装依赖
 ## 打包
 >node r.js -o build.js //打包src文件&&压缩js、css
+
 >node test.js //压缩html
 
 # 解决谷歌跨域
