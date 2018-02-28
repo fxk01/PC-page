@@ -3,6 +3,7 @@
 多页面架构
 
 > requireJs + dot + AmazeUI + jquery + mock
+
 npm install 安装依赖
 ## 打包
 >node r.js -o build.js //打包src文件&&压缩js、css
