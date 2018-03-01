@@ -1,3 +1,4 @@
+//压缩html
 var fs = require('fs');
 var minify = require('html-minifier').minify;
 fs.readFile('./dist/src/index/index.html', 'utf8', function (err, data) {
