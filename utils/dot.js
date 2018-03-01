@@ -1,4 +1,6 @@
-// doT.js
+/*
+ dot.js
+ */
 
 (function () {
   "use strict";

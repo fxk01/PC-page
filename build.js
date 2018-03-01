@@ -8,7 +8,7 @@
       exclude: ['libs/jquery/jquery-2.1.4']
     }
   ],
-  fileExclusionRegExp: /^(r|build)\.js|.*\.scss$|(\.idea$)|(\.gitattributes$)|(\.gitignore$)|(\.md$)|(LICENSE$)|(test.js$)|(node_modules$)|(package.json$)|(package-lock.json$)/,
+  fileExclusionRegExp: /^(r|build)\.js|.*\.scss$|(\.idea$)|(\.gitattributes$)|(\.gitignore$)|(\.md$)|(LICENSE$)|(test.js$)|(node_modules$)|(package.json$)|(package-lock.json$)|(gulpfile.js$)/,
   optimizeCss: 'standard',
   removeCombined: true
 });

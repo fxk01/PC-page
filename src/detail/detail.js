@@ -24,7 +24,7 @@ define(['jquery', 'amui', 'dot', 'com', 'module'], function($, amui, dot, comTar
       初始化
      */
     init: function() {
-      // console.log(comTarget);
+      console.log(amui);
     }
   };
   detailPage.prototype.init.prototype = detailPage.prototype;

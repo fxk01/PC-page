@@ -5,7 +5,7 @@
 
 'use strict';
 define(['module'], function (module) {
-  var utils = {
+  var toolClass = {
     uPattern: /^[a-zA-Z0-9_-]{4,16}$/, //用户名正则，4到16位（字母，数字，下划线，减号）
     pPattern: /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/, //密码强度正则，最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符
     cP: /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/, //身份证号（18位）正则
@@ -88,5 +88,5 @@ define(['module'], function (module) {
       }
     }
   };
-  module.exports = utils;
+  module.exports = toolClass;
 });

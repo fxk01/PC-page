@@ -8,20 +8,16 @@ require.config({
   urlArgs: 'bust=' + new Date().getTime(),
   waitSeconds: 0,
   paths: {
-    $$: '../../libs/jquery/jquery-2.1.4',
+    jquery: '../../libs/jquery/jquery-2.1.4',
     amui: '../../static/amazeui/js/amazeui.min',
-    dot: '../../utils/dot',
-    com: '../../utils/com',
-    easing: '../../libs/easing/easing',
-    plug: '../../utils/plug'
+    utils: '../../dist/utils/util.min'
   },
   shim: {
-    easing: ['$$'],
-    plug: ['$$']
+    utils: ['jquery']
   }
 });
 
-define(['$$', 'amui', 'dot', 'com', 'easing', 'plug', 'module'], function($$, amui, dot, comTarget, easing, $, module) {
+define(['jquery', 'amui', 'utils', 'module'], function($, amui, utils, module) {
   var indexPage = function() {
     return new indexPage.prototype.init();
   };
@@ -30,6 +26,7 @@ define(['$$', 'amui', 'dot', 'com', 'easing', 'plug', 'module'], function($$, am
     初始化
     */
     init: function() {
+      console.log(amui);
       //引入第三方插件
       // console.log(comTarget);
       // $('p#beatText').loginAjax();
