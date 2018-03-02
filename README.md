@@ -10,8 +10,6 @@
 ## 打包
 >node r.js -o build.js //编译src文件&&压缩js、css
 
->gulp minifyjs //打包utils
-
 >node test.js //压缩html
 
 # 解决谷歌跨域
