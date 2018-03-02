@@ -31,7 +31,7 @@ gulp.task('auto', function() {
 
 // 编译后的css将注入到浏览器里实现更新
 gulp.task('css', function() {
-  return gulp.src("src/*/*.css")
+  return gulp.src('src/*/*.css')
       // .pipe(gulp.dest("src/css"))
       .pipe(reload({stream: true}));
 });
