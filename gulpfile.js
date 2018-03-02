@@ -35,7 +35,7 @@ gulp.task('reload', function() {
 // gulp服务器
 gulp.task('server', function() {
   connect.server({
-    root: 'src',
+    root: '',
     port: 8888,
     livereload: true
   })

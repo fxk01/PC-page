@@ -5,6 +5,8 @@
 > gulp + requireJs + dot + AmazeUI + jquery + mock
 
 > npm install 安装依赖
+
+>gulp //启动服务器
 ## 打包
 >node r.js -o build.js //编译src文件&&压缩js、css
 
