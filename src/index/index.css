@@ -12,6 +12,9 @@
     display: block;
     height: 23rem;
 }
+.page-index-colo {
+    color: red;
+}
 ul li {
     float: right;
     list-style: none;

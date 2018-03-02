@@ -9,9 +9,11 @@ var routeJump = function() {
   var browser = navigator.appName,
       b_version = navigator.appVersion,
       version = b_version.split(';'),
-      trim_Version = version[1].replace(/[ ]/g,''),
       routeHref = window.location.href.split('/'),
       routeHtml = routeHref[routeHref.length - 1].match(/\w+.html+/g)[0];
+  if(typeof version[1] !== 'undefined') {
+    var trim_Version = version[1].replace(/[ ]/g,'');
+  }
   this.init = function() {
     var self = this;
     self._controlPage();
@@ -29,7 +31,7 @@ var routeJump = function() {
     }
   };
   this._controlPage = function() {
-    this._trueAndFalseIe(trim_Version) ? window.location.href = '../../src/404/404.html' : console.log('浏览器版本正常！');
+    trim_Version && this._trueAndFalseIe(trim_Version) ? window.location.href = '../../src/404/404.html' : console.log('浏览器版本正常！');
     switch(routeHtml) {
       case 'index.html':
         require(['../index/index.js?bust=' + new Date().getTime() + ''], function (obj) {
@@ -43,6 +45,7 @@ var routeJump = function() {
         break;
       default:
     }
-  }
+  };
+  this.init();
 };
-new routeJump().init();
+new routeJump();
