@@ -1,3 +1,5 @@
+@import url('../../static/amazeui/css/amazeui.min.css');
+@import url('../../public/css/app.css');
 .page-index-hea {
   min-width: 1180px;
   position: relative;
