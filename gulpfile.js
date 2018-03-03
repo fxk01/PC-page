@@ -6,6 +6,7 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var connect = require('gulp-connect');
 var less = require('gulp-less');
+var cssmin = require('gulp-minify-css');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
@@ -27,6 +28,7 @@ gulp.task('script', function() {
 gulp.task('less', function() {
   return gulp.src('src/**/*.less')
       .pipe(less())
+      .pipe(cssmin())
       .pipe(gulp.dest('src'))
       .pipe(reload({stream: true}));
 });
