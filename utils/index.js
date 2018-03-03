@@ -75,7 +75,7 @@ define(['module'], function (module) {
 
 (function($, win, doc) {
   $.fn.loginAjax = function(options) {
-    console.log(1);
+    return 1;
   };
   $.fn.loginAjax2 = function(options) {
     var objThat = this, iSok = false;

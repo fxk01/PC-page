@@ -17,7 +17,7 @@ require.config({
   }
 });
 
-define(['jquery', 'amui', 'utils', 'module'], function($, amui, utils, module) {
+define(['jquery', 'amui', 'utils', 'module'], function($, amui, obj, module) {
   var indexPage = function() {
     return new indexPage.prototype.init();
   };
@@ -26,7 +26,7 @@ define(['jquery', 'amui', 'utils', 'module'], function($, amui, utils, module) {
     初始化
     */
     init: function() {
-      console.log(amui);
+      console.log(obj);
       //引入第三方插件
       // console.log(comTarget);
       // $('p#beatText').loginAjax();
