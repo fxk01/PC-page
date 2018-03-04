@@ -6,6 +6,7 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var connect = require('gulp-connect');
 var less = require('gulp-less');
+var autoprefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-minify-css');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
@@ -27,6 +28,10 @@ gulp.task('script', function() {
 //编译less
 gulp.task('less', function() {
   return gulp.src('src/**/*.less')
+      .pipe(autoprefixer({
+          browsers: ['last 2 versions', 'Android >= 4.0'],
+          cascade: false
+      }))
       .pipe(less())
       .pipe(cssmin())
       .pipe(gulp.dest('src'))
