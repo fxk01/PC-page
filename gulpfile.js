@@ -9,11 +9,12 @@ var less = require('gulp-less');
 var autoprefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-minify-css');
 var imageMin = require('gulp-imagemin');
+var fileinclude  = require('gulp-file-include');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
 // 默认任务
-gulp.task('default', ['server', 'auto']);
+gulp.task('default', ['server', 'auto', 'htmlInclude']);
 
 // 将utils下的js打包一个utils
 gulp.task('script', function() {
@@ -39,11 +40,21 @@ gulp.task('less', function() {
       .pipe(reload({stream: true}));
 });
 
-//压缩图片
+// 压缩图片
 gulp.task('images',function() {
   gulp.src('public/images/*/*.*')
       .pipe(imageMin({progressive: true}))
       .pipe(gulp.dest('public/images-min'))
+});
+
+// 编译html
+gulp.task('htmlInclude', function() {
+  gulp.src(['src/index/index.html'])
+      .pipe(fileinclude({
+        prefix: '@@',
+        basepath: '@file'
+      }))
+      .pipe(gulp.dest('./src/index'));
 });
 
 // 创建文件修改监听任务
