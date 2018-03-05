@@ -10,6 +10,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-minify-css');
 var imageMin = require('gulp-imagemin');
 var fileinclude  = require('gulp-file-include');
+var ejs  = require('gulp-ejs');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
@@ -54,7 +55,14 @@ gulp.task('htmlInclude', function() {
         prefix: '@@',
         basepath: '@file'
       }))
-      .pipe(gulp.dest('./src/index'));
+      // .pipe(gulp.dest('./src/index'));
+});
+
+// ejs
+gulp.task('ejs', function() {
+  gulp.src('src/**/*.ejs')
+      .pipe(ejs({}, {}, {ext: '.html'}))
+      .pipe(gulp.dest('src'));
 });
 
 // 创建文件修改监听任务
@@ -63,6 +71,7 @@ gulp.task('auto', function() {
   gulp.watch('utils/*.js', ['script']);
   gulp.watch('src/*/*.less', ['less']);
   gulp.watch('src/*/*.js', ['js']);
+  gulp.watch('src/**/*.ejs', ['ejs']);
   gulp.watch('public/images/*/*.*', ['images']);
   gulp.watch('src/*/*.html').on('change', reload);
 });
