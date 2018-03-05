@@ -8,13 +8,14 @@ var connect = require('gulp-connect');
 var less = require('gulp-less');
 var autoprefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-minify-css');
+var imageMin = require('gulp-imagemin');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
 // 默认任务
 gulp.task('default', ['server', 'auto']);
 
-//将utils下的js打包一个utils
+// 将utils下的js打包一个utils
 gulp.task('script', function() {
   gulp.src(['utils/com.js', 'utils/plug.js', 'libs/easing/easing.js'])
       .pipe(concat('index.js'))
@@ -25,7 +26,7 @@ gulp.task('script', function() {
       .pipe(reload({stream: true}));
 });
 
-//编译less
+// 编译less
 gulp.task('less', function() {
   return gulp.src('src/**/*.less')
       .pipe(autoprefixer({
@@ -38,12 +39,20 @@ gulp.task('less', function() {
       .pipe(reload({stream: true}));
 });
 
+//压缩图片
+gulp.task('image',function() {
+  gulp.src('public/image/*/*.*')
+      .pipe(imageMin({progressive: true}))
+      .pipe(gulp.dest('public/images-min'))
+});
+
 // 创建文件修改监听任务
 gulp.task('auto', function() {
   // 源码有改动就进行压缩以及热刷新
   gulp.watch('utils/*.js', ['script']);
   gulp.watch('src/*/*.less', ['less']);
   gulp.watch('src/*/*.js', ['js']);
+  gulp.watch('public/image/*/*.*', ['image']);
   gulp.watch('src/*/*.html').on('change', reload);
 });
 
@@ -77,8 +86,4 @@ gulp.task('server', function() {
   browserSync.init({
     server: ''
   });
-  // gulp.watch('src/*/*.less', ['less']);
-  // gulp.watch('src/*/*.css', ['css']);
-  // gulp.watch('src/*/*.html', ['reload']);
-  // gulp.watch('src/*/*.html').on('change', reload);
 });
