@@ -40,8 +40,8 @@ gulp.task('less', function() {
 });
 
 //压缩图片
-gulp.task('image',function() {
-  gulp.src('public/image/*/*.*')
+gulp.task('images',function() {
+  gulp.src('public/images/*/*.*')
       .pipe(imageMin({progressive: true}))
       .pipe(gulp.dest('public/images-min'))
 });
@@ -52,7 +52,7 @@ gulp.task('auto', function() {
   gulp.watch('utils/*.js', ['script']);
   gulp.watch('src/*/*.less', ['less']);
   gulp.watch('src/*/*.js', ['js']);
-  gulp.watch('public/image/*/*.*', ['image']);
+  gulp.watch('public/images/*/*.*', ['images']);
   gulp.watch('src/*/*.html').on('change', reload);
 });
 
