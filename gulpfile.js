@@ -61,7 +61,9 @@ gulp.task('htmlInclude', function() {
 // ejs
 gulp.task('ejs', function() {
   gulp.src('src/**/*.ejs')
-      .pipe(ejs({}, {}, {ext: '.html'}))
+      .pipe(ejs({
+        msg: 'Hello Gulp!'
+      }, {}, {ext: '.html'}))
       .pipe(gulp.dest('src'));
 });
 
