@@ -32,14 +32,15 @@ var routeJump = function() {
   };
   this._controlPage = function() {
     trim_Version && this._trueAndFalseIe(trim_Version) ? window.location.href = '../../src/404/404.html' : console.log('浏览器版本正常！');
+    var cacheTimePage = new Date().getTime();
     switch(routeHtml) {
       case 'index.html':
-        require(['../index/index.js?bust=' + new Date().getTime() + ''], function (obj) {
+        require(['../index/index.js?bust=' + cacheTimePage + ''], function (obj) {
           obj.indexPage();
         });
         break;
       case 'detail.html':
-        require(['../detail/detail.js?bust=' + new Date().getTime() + ''], function (obj) {
+        require(['../detail/detail.js?bust=' + cacheTimePage + ''], function (obj) {
           obj.detailPage();
         });
         break;
