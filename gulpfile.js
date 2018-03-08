@@ -63,7 +63,9 @@ gulp.task('ejs', function() {
   gulp.src('src/**/*.ejs')
       .pipe(ejs({
         msg: 'Hello Gulp!'
-      }, {}, {ext: '.html'}))
+      }, {}, {ext: '.html'})).on('error', function(msg) {
+        console.log(msg);
+      })
       .pipe(gulp.dest('src'));
 });
 
