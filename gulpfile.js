@@ -5,6 +5,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var connect = require('gulp-connect');
+var changed = require('gulp-changed');
 var less = require('gulp-less');
 var autoprefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-minify-css');
@@ -37,6 +38,7 @@ gulp.task('less', function() {
       }))
       .pipe(less())
       .pipe(cssmin())
+      .pipe(changed('src'))
       .pipe(gulp.dest('src'))
       .pipe(reload({stream: true}));
 });

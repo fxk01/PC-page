@@ -1,6 +1,7 @@
 # 备案大师
 ## technology stack
 多页面架构
+Please try running this command again as root/Administrator.  ~~npm cache clean -f
 
 > gulp + requireJs + dot + AmazeUI + jquery
 

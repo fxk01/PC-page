@@ -26,9 +26,8 @@ define(['jquery', 'amui', 'utils', 'module'], function($, amui, obj, module) {
     初始化
     */
     init: function() {
-      // console.log(obj);
+      console.log(obj);
       //引入第三方插件
-      // console.log(comTarget);
       // $('p#beatText').loginAjax();
       $('p#beatText').beatText({isAuth:false,isRotate:false});
       $('p#rotateText').beatText({isAuth:false,isRotate:true});
