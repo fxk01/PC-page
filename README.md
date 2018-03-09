@@ -15,8 +15,6 @@ Please try running this command again as root/Administrator.  ~~npm cache clean 
 
 >node test.js //压缩html
 
-http://blog.csdn.net/blueblueuueew/article/details/53519319
-
 # 解决谷歌跨域
 找到谷歌浏览器目录最后添加:
   --args   --disable-web-security   --user-data-dir
