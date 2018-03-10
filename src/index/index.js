@@ -17,7 +17,12 @@ require.config({
   }
 });
 
-define(['jquery', 'amui', 'utils', 'module'], function($, amui, obj, module) {
+define([
+  'jquery',
+  'amui',
+  'utils',
+  'module'
+], function($, amui, obj, module) {
   var indexPage = function() {
     return new indexPage.prototype.init();
   };
@@ -27,6 +32,12 @@ define(['jquery', 'amui', 'utils', 'module'], function($, amui, obj, module) {
     */
     init: function() {
       console.log(obj);
+      new Vue({
+        el: 'app',
+        data: {
+          number: '1'
+        }
+      });
       //引入第三方插件
       // $('p#beatText').loginAjax();
       $('p#beatText').beatText({isAuth:false,isRotate:false});

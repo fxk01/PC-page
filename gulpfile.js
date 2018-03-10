@@ -20,7 +20,7 @@ gulp.task('default', ['server', 'auto', 'htmlInclude']);
 
 // 将utils下的js打包一个utils
 gulp.task('script', function() {
-  gulp.src(['utils/com.js', 'utils/plug.js', 'libs/easing/easing.js'])
+  gulp.src(['utils/com.js', 'utils/plug.js', 'libs/easing/easing.js', 'utils/utils.js'])
       .pipe(concat('index.js'))
       .pipe(gulp.dest('utils'))
       .pipe(rename({suffix: '.min'}))

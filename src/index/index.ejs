@@ -49,6 +49,17 @@
         <%-include ../../components/top/top.html  %>
     </header>
     <h1><%= msg %></h1>
+    <button id="but">点击</button>
+    <button id="but2">点击2</button>
+
+    <div id="tab">
+        <div id='app'>
+            <input class='inp' v-model='number' placeholder="请输入number值...">
+            <span>number值：</span>
+            {{number}}
+        </div>
+    </div>
+
     <a class="public page-index-colo" href="../detail/detail.html">detail</a>
     <div class="container">
         <p id="beatText">我可是会跳的哦，但看我跳，你要把鼠标移上来。</p>
