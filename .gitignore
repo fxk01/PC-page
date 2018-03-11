@@ -6,6 +6,7 @@
 .idea
 dist
 node_modules
+public/images-min
 *.iml
 out
 gen

@@ -27,7 +27,7 @@
             padding:10px auto;
         }
         /*下面两个是核心样式*/
-        .beat-char {
+        .beat-char{
             line-height: 3.4em;
             position: relative;
             display: inline-block;
@@ -52,16 +52,20 @@
     <p>头部</p>
 </div>
     </header>
-    <h1>Hello Gulp!</h1>
-    <button id="but">点击</button>
-    <button id="but2">点击2</button>
 
-    <input type="text" data-bind-1="name" />
-    <div style="display: none;" id="app2">
-        <span data-bind-1="name"></span>
+    <div id="tab1">
+        <form name="data">
+            <input type="text" name="name">
+            <input type="text" name="age">
+            <input type="text" name="gender">
+        </form>
     </div>
 
+    <div id="tab2" style="display: none;">
+        Name: <span name="data.age" ml-default=" "></span>
+    </div>
 
+    <h1>Hello Gulp!</h1>
     <a class="public page-index-colo" href="../detail/detail.html">detail</a>
     <div class="container">
         <p id="beatText">我可是会跳的哦，但看我跳，你要把鼠标移上来。</p>

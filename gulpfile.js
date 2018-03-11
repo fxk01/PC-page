@@ -12,6 +12,7 @@ var cssmin = require('gulp-minify-css');
 var imageMin = require('gulp-imagemin');
 var fileinclude  = require('gulp-file-include');
 var ejs  = require('gulp-ejs');
+var plumber = require('gulp-plumber');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
@@ -20,7 +21,13 @@ gulp.task('default', ['server', 'auto', 'htmlInclude']);
 
 // 将utils下的js打包一个utils
 gulp.task('script', function() {
-  gulp.src(['utils/com.js', 'utils/plug.js', 'libs/easing/easing.js', 'utils/utils.js'])
+  gulp.src(['utils/com.js', 'utils/plug.js', 'libs/easing/easing.js', 'utils/utils.js', 'libs/modelite/modelite.js'])
+      .pipe(plumber({
+        errorHandler: function(error) {
+          console.log(error);
+          this.emit('end')
+        }
+      }))
       .pipe(concat('index.js'))
       .pipe(gulp.dest('utils'))
       .pipe(rename({suffix: '.min'}))
@@ -32,6 +39,12 @@ gulp.task('script', function() {
 // 编译less
 gulp.task('less', function() {
   return gulp.src('src/**/*.less')
+      .pipe(plumber({
+        errorHandler: function(error) {
+          console.log(error);
+          this.emit('end')
+        }
+      }))
       .pipe(autoprefixer({
           browsers: ['last 2 versions', 'Android >= 4.0'],
           cascade: false
@@ -57,7 +70,6 @@ gulp.task('htmlInclude', function() {
         prefix: '@@',
         basepath: '@file'
       }))
-      // .pipe(gulp.dest('./src/index'));
 });
 
 // ejs
@@ -85,13 +97,13 @@ gulp.task('auto', function() {
 // 编译后的js将注入到浏览器里实现更新
 gulp.task('js', function() {
   return gulp.src('src/*/*.js')
+      // .pipe(changed('src'))
       .pipe(reload({stream: true}));
 });
 
 // 编译后的css将注入到浏览器里实现更新
 gulp.task('css', function() {
   return gulp.src('src/*/*.css')
-      // .pipe(gulp.dest("src/css"))
       .pipe(reload({stream: true}));
 });
 
