@@ -88,7 +88,7 @@ gulp.task('auto', function() {
   // 源码有改动就进行压缩以及热刷新
   gulp.watch('utils/*.js', ['script']);
   gulp.watch('src/*/*.less', ['less']);
-  gulp.watch('src/*/*.js', ['js']);
+  gulp.watch('src/*/*.js').on('change', reload);
   gulp.watch('src/**/*.ejs', ['ejs']);
   gulp.watch('public/images/*/*.*', ['images']);
   gulp.watch('src/*/*.html').on('change', reload);

@@ -23,15 +23,16 @@ define([
   'utils',
   'module'
 ], function($, amui, obj, module) {
-  var indexPage = function() {
-    return new indexPage.prototype.init();
+  var indexPage = function(obj) {
+    return new indexPage.prototype.init(obj);
   };
   indexPage.prototype = {
     /*
     初始化
     */
-    init: function() {
-      console.log(1);
+    init: function(obj) {
+      this['title'] = obj['title'];
+      console.log(obj.title.arr);
       //引入第三方插件
       // $('p#beatText').loginAjax();
       $('p#beatText').beatText({isAuth:false,isRotate:false});
@@ -43,6 +44,9 @@ define([
   };
   indexPage.prototype.init.prototype = indexPage.prototype;
   module.exports = {
+    title: {
+      arr: [1, 2, 3]
+    },
     indexPage: indexPage
   };
 });

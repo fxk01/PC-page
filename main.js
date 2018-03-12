@@ -36,7 +36,7 @@ var routeJump = function() {
     switch(routeHtml) {
       case 'index.html':
         require(['../index/index.js?bust=' + cacheTimePage + ''], function (obj) {
-          obj.indexPage();
+          obj.indexPage(obj);
         });
         break;
       case 'detail.html':
