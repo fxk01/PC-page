@@ -46,21 +46,10 @@
 </head>
 <body>
     <header>
-        <%-include ../../components/top/top.html  %>
+        <%-include ../../components/top/top.html %>
     </header>
-
-    <div id="tab1">
-        <form name="data">
-            <input type="text" name="name">
-            <input type="text" name="age">
-            <input type="text" name="gender">
-        </form>
-    </div>
-
-    <div id="tab2" style="display: none;">
-        Name: <span name="data.age" ml-default=" "></span>
-    </div>
-
+    <%-include ../../components/tab/tab1.html %>
+    <%-include ../../components/tab/tab2.html %>
     <h1><%= msg %></h1>
     <a class="public page-index-colo" href="../detail/detail.html">detail</a>
     <div class="container">
