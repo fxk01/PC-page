@@ -17,7 +17,7 @@ var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
 // 默认任务
-gulp.task('default', ['server', 'auto', 'htmlInclude']);
+gulp.task('default', ['server', 'auto']);
 
 // 将utils下的js打包一个utils
 gulp.task('script', function() {
@@ -64,13 +64,13 @@ gulp.task('images',function() {
 });
 
 // 编译html
-gulp.task('htmlInclude', function() {
-  gulp.src(['src/index/index.html'])
-      .pipe(fileinclude({
-        prefix: '@@',
-        basepath: '@file'
-      }))
-});
+// gulp.task('htmlInclude', function() {
+//   gulp.src(['src/index/index.html'])
+//       .pipe(fileinclude({
+//         prefix: '@@',
+//         basepath: '@file'
+//       }))
+// });
 
 // ejs
 gulp.task('ejs', function() {
