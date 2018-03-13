@@ -11,20 +11,10 @@
     <title>首页</title>
     <link rel="stylesheet" type="text/css" href="./index.css">
     <style>
-        *{
-            padding:0;
-            margin:0;
-            color:black;
-            font-size:30px;
-        }
-        .container{
-            margin:50px auto;
-            width:1100px;
-            position:relative;
-        }
-        .container p{
-            text-align:center;
-            padding:10px auto;
+        #shclFireballs {width:50px; height:50px; margin:10px auto;}
+        #shclFireballs2 {width:50px; height:50px; margin:10px auto;}
+        .myns > div {
+            box-shadow: 0 0 6px black, inset 0 0 6px black;
         }
         /*下面两个是核心样式*/
         .beat-char{
@@ -50,6 +40,34 @@
     </header>
     <%-include ../../components/tab/tab1.html %>
     <%-include ../../components/tab/tab2.html %>
+
+    <div id="interpolation">
+        <div style="text-align: center; width: 400px; display: inline-block;">
+            <div id="shclFireballs" style="display: inline-block; height: 75px;"></div>
+        </div>
+
+        <script id="interpolationTpl" type="text/x-dot-template">
+            <ul style="padding-left: 0; width: 400px; text-align: center; margin-top: 30px; margin-bottom: 30px;">
+                {{ for(var prop in it) { }}
+                <li>{{= it[prop] }}</li>
+                {{ } }}
+            </ul>
+        </script>
+    </div>
+
+    <div id="interpolation2">
+        <div style="text-align: center; width: 400px; display: inline-block;">
+            <div id="shclFireballs2" style="display: inline-block; height: 75px;"></div>
+        </div>
+        <script id="interpolationTpl2" type="text/x-dot-template">
+            <ul>
+                {{ for(var prop in it) { }}
+                <li>{{= it[prop] }}</li>
+                {{ } }}
+            </ul>
+        </script>
+    </div>
+
     <h1><%= msg %></h1>
     <a class="public page-index-colo" href="../detail/detail.html">detail</a>
     <div class="container">

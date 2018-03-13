@@ -10,6 +10,7 @@ require.config({
   paths: {
     jquery: '../../libs/jquery/jquery-2.1.4',
     amui: '../../static/amazeui/js/amazeui.min',
+    dot: '../../libs/dot/dot',
     utils: '../../utils/index.min'
   },
   shim: {
@@ -20,9 +21,10 @@ require.config({
 define([
   'jquery',
   'amui',
+  'dot',
   'utils',
   'module'
-], function($, amui, obj, module) {
+], function($, amui, dot, obj, module) {
   var indexPage = function(obj) {
     return new indexPage.prototype.init(obj);
   };
@@ -32,7 +34,39 @@ define([
     */
     init: function(obj) {
       this['title'] = obj['title'];
-      console.log(obj.title.arr);
+      function string2Array(stringObj) {
+        stringObj = stringObj.replace(/([\w,]∗)/, '$1');
+        if (stringObj.indexOf('[') === 0) {
+          stringObj = stringObj.substring(1, stringObj.length - 1);
+        }
+        var arr = stringObj.split(',');
+        var newArray = [];
+        for (var i = 0; i < arr.length; i++) {
+          var arrOne = arr[i];
+          newArray.push(arrOne);
+        }
+        return newArray;
+      }
+      // console.log(obj.title.arr);
+      $('#shclFireballs').shCircleLoader();
+      $('#shclFireballs2').shCircleLoader();
+      var _listArr = '';
+      $.get('../../public/data/list.json').done(function(data){
+        _listArr = string2Array(data.arr);
+        _listArr.forEach(function(json) {
+          console.log(json);
+        });
+      });
+      setTimeout(function () {
+        var interText = dot.template($('#interpolationTpl').text());
+        $('#interpolation').html(interText(_listArr));
+      }, 2000);
+
+      setTimeout(function () {
+        var interText2 = dot.template($('#interpolationTpl2').text());
+        $('#interpolation2').html(interText2(_listArr));
+      }, 5000);
+
       //引入第三方插件
       // $('p#beatText').loginAjax();
       $('p#beatText').beatText({isAuth:false,isRotate:false});
