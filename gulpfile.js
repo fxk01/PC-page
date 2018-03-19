@@ -21,7 +21,7 @@ gulp.task('default', ['server', 'auto']);
 
 // 将utils下的js打包一个utils
 gulp.task('script', function() {
-  gulp.src(['utils/com.js', 'utils/plug.js', 'libs/easing/easing.js', 'utils/utils.js', 'libs/modelite/modelite.js'])
+  gulp.src(['utils/com.js', 'utils/plug.js', 'libs/easing/easing.js', 'utils/utils.js'])
       .pipe(plumber({
         errorHandler: function(error) {
           console.log(error);
