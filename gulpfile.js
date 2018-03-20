@@ -21,7 +21,11 @@ gulp.task('default', ['server', 'auto']);
 
 // 将utils下的js打包一个utils
 gulp.task('script', function() {
+<<<<<<< HEAD
   gulp.src(['utils/com.js', 'utils/plug.js', 'libs/easing/easing.js', 'utils/utils.js', 'libs/modelite/modelite.js', 'libs/q/q.js', 'libs/page/amazeui.page.js'])
+=======
+  gulp.src(['utils/com.js', 'utils/plug.js', 'libs/easing/easing.js', 'utils/utils.js'])
+>>>>>>> 2b40813b53af1ba548b68e2da51e03f62eb4e6e1
       .pipe(plumber({
         errorHandler: function(error) {
           console.log(error);

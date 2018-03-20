@@ -74,7 +74,6 @@ define([
       $.get('../../public/data/list.json').done(function(data){
         _listArr = string2Array(data.arr);
         _listArr.forEach(function(json) {
-          console.log(json);
         });
       });
       setTimeout(function () {

@@ -4,6 +4,12 @@
  **/
 
 (function($, win, doc) {
+  /**
+   * $('#shclFireballs').shCircleLoader();
+   * <div id="shclFireballs"></div>
+   * @param first
+   * @param second
+   */
   $.fn.shCircleLoader = function(first, second) {
     var defaultNamespace = "shcl",
         id = 1,
