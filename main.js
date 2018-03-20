@@ -10,7 +10,12 @@ var routeJump = function() {
       b_version = navigator.appVersion,
       version = b_version.split(';'),
       routeHref = window.location.href.split('/'),
-      routeHtml = routeHref[routeHref.length - 1].match(/\w+.html+/g)[0];
+      routeHtml;
+  for(var j = 0; j < routeHref.length; j++) {
+    if(routeHref[j].indexOf('.html') > 0) {
+      routeHtml = routeHref[j].match(/\w+.html+/g)[0];
+    }
+  }
   if(typeof version[1] !== 'undefined') {
     var trim_Version = version[1].replace(/[ ]/g,'');
   }
