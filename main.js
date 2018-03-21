@@ -48,6 +48,7 @@ var routeJump = function() {
         var _loadJs = load_js;
         require(['../' + load_js + '/' + load_js + '.js?bust=' + cacheTimePage + ''], function (obj) {
           obj[''+_loadJs+'Page'](obj);
+          $.AMUI.progress.start();
         });
       }
     }

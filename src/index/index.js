@@ -39,6 +39,8 @@ define([
     */
     init: function(obj) {
       var self = this;
+      var d1 = $.Deferred();
+      var d2 = $.Deferred();
       q.reg('about', function() {
         document.getElementById('m').innerHTML = esports;
         self.esTpl();
@@ -79,12 +81,19 @@ define([
       setTimeout(function () {
         var interText = dot.template($('#interpolationTpl').text());
         $('#interpolation').html(interText(_listArr));
+        d1.resolve( "Fish" );
       }, 2000);
 
       setTimeout(function () {
         var interText2 = dot.template($('#interpolationTpl2').text());
         $('#interpolation2').html(interText2(_listArr));
+        d2.resolve( "Pizza" );
       }, 5000);
+
+      $.when( d1, d2 ).done(function ( v1, v2 ) {
+        $.AMUI.progress.done();
+        console.log( v1 + v2 + '已完成');
+      });
 
       //引入第三方插件
       // $('p#beatText').loginAjax();
