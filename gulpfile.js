@@ -29,10 +29,10 @@ gulp.task('script', function() {
         }
       }))
       .pipe(concat('index.js'))
-      .pipe(gulp.dest('utils'))
+      .pipe(gulp.dest(''))
       .pipe(rename({suffix: '.min'}))
       .pipe(uglify())
-      .pipe(gulp.dest('utils'))
+      .pipe(gulp.dest(''))
       .pipe(reload({stream: true}));
 });
 

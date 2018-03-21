@@ -10,7 +10,7 @@ require.config({
   paths: {
     jquery: '../../libs/jquery/jquery-2.1.4',
     amui: '../../static/amazeui/js/amazeui.min',
-    utils: '../../utils/index.min'
+    utils: '../../index.min'
   },
   shim: {
     utils: ['jquery']

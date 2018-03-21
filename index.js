@@ -74,6 +74,12 @@ define(['module'], function (module) {
  **/
 
 (function($, win, doc) {
+  /**
+   * $('#shclFireballs').shCircleLoader();
+   * <div id="shclFireballs"></div>
+   * @param first
+   * @param second
+   */
   $.fn.shCircleLoader = function(first, second) {
     var defaultNamespace = "shcl",
         id = 1,
@@ -748,7 +754,7 @@ var toolClass = {
 };
 
 
-/*! modelite.js v0.3.0 | (c) 2015, Kan Kung-Yip. | MIT */
+/*! modelite.js v0.3.0 | (c) 2015, Kan Kung-Yip. | MIT  https://github.com/fxk01/modelite.js */
 var slice = [].slice;
 !
     function() {

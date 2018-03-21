@@ -11,7 +11,7 @@ require.config({
     jquery: '../../libs/jquery/jquery-2.1.4',
     amui: '../../static/amazeui/js/amazeui.min',
     dot: '../../libs/dot/dot',
-    utils: '../../utils/index.min',
+    utils: '../../index.min',
     text: '../../libs/text/text',
     textEsPorts: '../../template/index/esports.html',
     textOnline: '../../template/index/online.html'
