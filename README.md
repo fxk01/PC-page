@@ -12,7 +12,7 @@ Please try running this command again as root/Administrator.  ~~npm cache clean 
 >gulp //启动服务器
 
 ## Demo 预览
-<h2 align="center"><a href="http://fe.bmqb.com/tower_game/index.html?v=2">在线预览地址 (Demo Link)</a></h2>
+<h2 align="center"><a href="javascript:">在线预览地址 (Demo Link)</a></h2>
 <p align="center"><img src="http://sdx.hefupb.com/img/demo1.gif"/></p>
 
 ## 打包
