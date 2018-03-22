@@ -12,7 +12,7 @@ Please try running this command again as root/Administrator.  ~~npm cache clean 
 >gulp //启动服务器
 
 ## Demo 预览
-<p align="center"><img src="http://sdx.hefupb.com/img/animation.gif"/></p>
+<p align="center"><img src="http://sdx.hefupb.com/img/Animation.gif"/></p>
 
 ## 打包
 >node r.js -o build.js //编译src文件&&压缩js、css
