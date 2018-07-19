@@ -13,8 +13,9 @@ require.config({
     dot: '../../libs/dot/dot',
     utils: '../../index.min',
     text: '../../libs/text/text',
-    textEsPorts: '../../template/index/esports.html',
-    textOnline: '../../template/index/online.html'
+    textEsPorts: '../../template/esports/esports.html',
+    textOnline: '../../template/index/online.html',
+    esportsJs: '../../template/esports/esports'
   },
   shim: {
     utils: ['jquery']
@@ -28,8 +29,9 @@ define([
   'utils',
   'text!textEsPorts',
   'text!textOnline',
+  'esportsJs',
   'module'
-], function($, amui, dot, obj, esports, online, module) {
+], function($, amui, dot, obj, esports, online, esportsJs, module) {
   var indexPage = function(obj) {
     return new indexPage.prototype.init(obj);
   };
@@ -43,6 +45,7 @@ define([
       var d2 = $.Deferred();
       q.reg('about', function() {
         document.getElementById('m').innerHTML = esports;
+        console.log(esportsJs.esPorTs.area());
         self.esTpl();
       });
 
@@ -137,7 +140,7 @@ define([
           },
           render: function(context, $el, index) { //渲染[context：对this的引用，$el：当前元素，index：当前索引]
             //逻辑处理
-            if (index == 'last') { //虽然上面设置了last的文字为尾页，但是经过render处理，结果变为最后一页
+            if (index === 'last') { //虽然上面设置了last的文字为尾页，但是经过render处理，结果变为最后一页
               $el.find('a').html('最后一页');
               return $el; //如果有返回值则使用返回值渲染
             }
