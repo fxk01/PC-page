@@ -15,6 +15,29 @@ var ejs  = require('gulp-ejs');
 var plumber = require('gulp-plumber');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
+var combiner = require('stream-combiner2');
+var merge = require('merge-stream');
+
+function lessCss() {
+  ['src', 'template'].forEach(function(t) {
+    return gulp.src(''+t+'/**/*.less')
+      .pipe(plumber({
+        errorHandler: function(error) {
+          console.log(error);
+          this.emit('end')
+        }
+      }))
+      .pipe(autoprefixer({
+        browsers: ['last 2 versions', 'Android >= 4.0'],
+        cascade: false
+      }))
+      .pipe(less())
+      .pipe(cssmin())
+      .pipe(changed(t))
+      .pipe(gulp.dest(t))
+      .pipe(reload({stream: true}));
+  });
+}
 
 // 默认任务
 gulp.task('default', ['server', 'auto']);
@@ -37,24 +60,7 @@ gulp.task('script', function() {
 });
 
 // 编译less
-gulp.task('less', function() {
-  return gulp.src('src/**/*.less')
-      .pipe(plumber({
-        errorHandler: function(error) {
-          console.log(error);
-          this.emit('end')
-        }
-      }))
-      .pipe(autoprefixer({
-          browsers: ['last 2 versions', 'Android >= 4.0'],
-          cascade: false
-      }))
-      .pipe(less())
-      .pipe(cssmin())
-      .pipe(changed('src'))
-      .pipe(gulp.dest('src'))
-      .pipe(reload({stream: true}));
-});
+gulp.task('less', lessCss);
 
 // 压缩图片
 gulp.task('images',function() {
@@ -63,35 +69,39 @@ gulp.task('images',function() {
       .pipe(gulp.dest('public/images-min'))
 });
 
-// 编译html
-// gulp.task('htmlInclude', function() {
-//   gulp.src(['src/index/index.html'])
-//       .pipe(fileinclude({
-//         prefix: '@@',
-//         basepath: '@file'
-//       }))
-// });
-
 // ejs
 gulp.task('ejs', function() {
   gulp.src('src/**/*.ejs')
-      .pipe(ejs({
-        msg: 'Hello Gulp!'
-      }, {}, {ext: '.html'})).on('error', function(msg) {
-        console.log(msg);
-      })
-      .pipe(gulp.dest('src'));
+    .pipe(ejs({
+      msg: 'Hello Gulp!'
+    }, {}, {ext: '.html'})).on('error', function(msg) {
+      console.log(msg);
+    })
+    .pipe(gulp.dest('src'))
+    // .pipe(connect.reload());
+});
+
+//流合并监听的方式 （能够监听到错误处在哪个文件，和错误的具体位置）
+gulp.task('errorJs', function() {
+  var combined = combiner.obj([
+    gulp.src(['src/**/*.js', 'template/**/*.js'])
+      .pipe(reload({stream: true})),
+    uglify()
+  ]);
+  //监听错误
+  combined.on('error',console.error.bind(console));
+  return combined;
 });
 
 // 创建文件修改监听任务
 gulp.task('auto', function() {
-  // 源码有改动就进行压缩以及热刷新
   gulp.watch('utils/*.js', ['script']);
-  gulp.watch('src/*/*.less', ['less']);
-  gulp.watch('src/*/*.js').on('change', reload);
+  gulp.watch(['src/*/*.less', 'template/*/*.less'], ['less']);
+  gulp.watch(['src/*/*.js', 'template/*/*.js', 'components/*/*.js'], ['errorJs']);
+  // gulp.watch('src/*/*.js').on('change', reload);
   gulp.watch('src/**/*.ejs', ['ejs']);
   gulp.watch('public/images/*/*.*', ['images']);
-  gulp.watch('src/*/*.html').on('change', reload);
+  gulp.watch(['src/*/*.html', 'template/*/*.html', 'components/*/*.html']).on('change', reload);
 });
 
 // 编译后的js将注入到浏览器里实现更新
@@ -117,7 +127,7 @@ gulp.task('reload', function() {
 // gulp服务器
 gulp.task('server', function() {
   connect.server({
-    root: '',
+    root: './',
     port: 8888,
     livereload: true
   });

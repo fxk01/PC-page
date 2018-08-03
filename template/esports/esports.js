@@ -26,6 +26,9 @@ define([
   }
   esPorTs.PI = 3.14159;
   esPorTs.prototype.area = function() {
+    $('#bt').on('click', function() {
+      console.log(13)
+    });
     return esPorTs.PI * this.r * this.r;
   };
 
