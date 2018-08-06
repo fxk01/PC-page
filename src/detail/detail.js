@@ -10,7 +10,8 @@ require.config({
   paths: {
     jquery: '../../libs/jquery/jquery-2.1.4',
     amui: '../../static/amazeui/js/amazeui.min',
-    utils: '../../index.min'
+    utils: '../../index.min',
+    dot: '../../libs/dot/dot'
   },
   shim: {
     utils: ['jquery']
@@ -21,8 +22,9 @@ define([
   'jquery',
   'amui',
   'utils',
+  'dot',
   'module'
-], function($, amui, obj, module) {
+], function($, amui, obj, dot, module) {
   var detailPage = function() {
     return new detailPage.prototype.init();
   };
@@ -31,7 +33,10 @@ define([
       初始化
      */
     init: function() {
-      console.log(obj);
+      setTimeout(function () {
+        $.AMUI.progress.done();
+      }, 1000);
+      console.log(dot);
     }
   };
   detailPage.prototype.init.prototype = detailPage.prototype;

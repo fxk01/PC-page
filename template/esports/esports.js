@@ -9,7 +9,8 @@ require.config({
   waitSeconds: 0,
   paths: {
     jquery: '../../libs/jquery/jquery-2.1.4',
-    amui: '../../static/amazeui/js/amazeui.min'
+    amui: '../../static/amazeui/js/amazeui.min',
+    dot: '../../libs/dot/dot'
   },
   shim: {
     utils: ['jquery']
@@ -19,8 +20,9 @@ require.config({
 define([
   'jquery',
   'amui',
+  'dot',
   'module'
-], function($, amui, module) {
+], function($, amui, dot, module) {
   function esPorTs(r) {
     this.r = r;
   }
@@ -29,6 +31,16 @@ define([
     $('#bt').on('click', function() {
       console.log(13)
     });
+
+    $("#app").html(dot.template($("#tpl").html())({
+      name:'stringParams1',
+      stringParams1:'stringParams1_value',
+      stringParams2:1,
+      arr:[{id:0,text:'val1'},{id:1,text:'val2'}],
+      sayHello:function () {
+        return this[this.name]
+      }
+    }));
     return esPorTs.PI * this.r * this.r;
   };
 
