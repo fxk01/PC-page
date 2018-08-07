@@ -46,7 +46,7 @@ var routeJump = function() {
     for(load_js in this.objHtml) {
       if(routeHtml === this.objHtml[load_js]) {
         var _loadJs = load_js;
-        require(['../' + load_js + '/' + load_js + '.js?bust=' + cacheTimePage + ''], function (obj) {
+        require(['../' + load_js + '/' + load_js + '.js?bust=' + cacheTimePage + ''], function(obj) {
           obj[''+_loadJs+'Page'](obj);
           $.AMUI.progress.start();
         });
