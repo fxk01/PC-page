@@ -49,12 +49,12 @@
 <div id="app"></div>
 <script type="text/html" id="tpl">
     <div>
-        <a>name:{{= it.name}}</a>
-        <p>age:{{= it.age}}</p>
-        <p>hello:{{= it.sayHello() }}</p>
+        <a>name:{{=it.name}}</a>
+        <p>age:{{=it.age}}</p>
+        <p>hello:{{=it.sayHello() }}</p>
         <select>
-            {{~ it.arr:item}}
-            <option {{?item.id == it.stringParams2}}selected{{?}} value="{{=item.id}}">
+            {{~it.arr:item}}
+            <option {{?item.id == item.num}}selected{{?}} class="{{?item.id == item.num}}selected{{?}}" value="{{=item.id}}">
                 {{=item.text}}
             </option>
             {{~}}

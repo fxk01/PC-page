@@ -33,11 +33,11 @@ define([
     });
 
     $("#app").html(dot.template($("#tpl").html())({
-      name:'stringParams1',
-      stringParams1:'stringParams1_value',
-      stringParams2:1,
-      arr:[{id:0,text:'val1'},{id:1,text:'val2'}],
-      sayHello:function () {
+      name: 'stringParams1',
+      stringParams1: 'stringParams1_value',
+      stringParams2: 1,
+      arr: [{id:0,text:'val1',num:1},{id:1,text:'val2',num:1}],
+      sayHello: function() {
         return this[this.name]
       }
     }));
