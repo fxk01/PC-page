@@ -12,7 +12,7 @@
     "amd-optimize": "^0.6.1",
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-changed": "^3.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.5.0",
