@@ -26,7 +26,11 @@ scoped 形成局部 css 的原理其实很简单，就是先给元素加上 
 为了加深理解，这里再提一点，仔细看 <div ></div> 这一块的 html 代码，你会发现它是同时具有 [data-v-f5321cf6] 和 [data-v-6a6ef68c] 两种属性，因为 <no-data> 组件的根元素是 <div ></div> ，在列表页引入 <no-data> ， <div ></div> 也相当于是列表中的一个元素，所以 scoped 也会给它 hash 上 [data-v-f5321cf6] 。 （这一块在实际开发中，有些朋友会搞一些骚操作，比如在父组件和子组件同时改 .no-data ）
 
 1、vue——样式穿透/deep/ >>> ::v-deep 三者的区别
-
+在vue3.0之前可使用，例如(复写样式前加/deep/)，vue3.0及后使用就会报错
+在vue3.0及后使用，替代/deep/使用::v-deep
+>>>
+只作用于css，对于less和scss不起作用，如果是less和scss的话需要用到/deep/或::v-deep
+::v-deep与 /deep/都是深度选择器，都能实现对组件内部的样式修改， ::v-deep的记载速度更快
 
 
 
